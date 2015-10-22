@@ -33,6 +33,8 @@ class User < ActiveRecord::Base
 
   end
 
+  has_many :notes
+
 
 
   private
