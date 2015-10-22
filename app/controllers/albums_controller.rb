@@ -44,11 +44,6 @@ class AlbumsController < ApplicationController
       render :show
     end
 
-    def user_must_be_signed_in
-      if @current_user.nil?
-        redirect_to new_session_url
-      end
-    end
 
 
     private

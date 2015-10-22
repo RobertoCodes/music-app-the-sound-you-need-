@@ -1,10 +1,3 @@
-<h1><%= @track.title %></h1>
-<h2><%= "On the Album #{@album.title}" %></h2>
-
-<%= button_to "Delete Track", track_url(@track), method: :delete %>
-<%= link_to "Track's Album", album_url(@album)%>
-<br>
-
 <form action="/notes" method="POST">
   <input
     type="hidden"
@@ -16,7 +9,6 @@
     type="text area"
     name="note[comment]"
     id="note_comment"
-    value="<%= @note.comment %>">
   <br>
 
   <input type="submit" value="Submit this note!">

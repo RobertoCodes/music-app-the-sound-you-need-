@@ -18,6 +18,13 @@ class TracksController < ApplicationController
       end
     end
 
+    def show
+      @track = Track.find(params[:id])
+      @album = @track.album
+      @note = Note.new
+      render :show
+    end
+
     def destroy
       @track = Track.find(params[:id])
       @track.destroy
