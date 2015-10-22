@@ -9,7 +9,6 @@ class BandsController < ApplicationController
     @band = Band.new(band_params)
     if @band.save
       render :show
-
     else
       render :new
     end

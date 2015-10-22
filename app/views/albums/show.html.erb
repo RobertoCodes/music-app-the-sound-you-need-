@@ -1,0 +1,7 @@
+<h1><%= @album.title %></h1>
+<h2><%= "Performed by #{@band.name}" %></h2>
+<% if @album.type_of_album == "Studio" %>
+  <h2>Performed in Studio</h2>
+<% else %>
+  <h2>Performed Live</h2>
+<% end %>

@@ -1,0 +1,48 @@
+<h1>Please Enter Album Information!</h1>
+
+<form action="/albums" method="POST">
+  <input
+    type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>"
+
+  <label for="album_title">Album Title</label>
+  <input
+    type="text"
+    name="album[title]"
+    id="album_title"
+    value="<%= @album.title %>"
+  <br>
+
+  <label for="album_band_id">Band Name</label>
+  <select name="album[band_id]" id="band_id">
+    <option></option>
+    <% @bands.each do |band| %>
+      <option
+        <%= band.id == @album.band_id ? "selected" : "" %>
+        value="<%= band.id %>">
+        <%= band.name %>
+      </option>
+    <% end %>
+  </select>
+  <br>
+
+  <input
+    type="radio"
+    name="album[type_of_album]"
+    value="Studio"
+    id="album_type_of_album_studio"
+    <%= @album.type_of_album == "Studio" ? "checked" : "" %>>
+  <label for="album_type_of_album_studio"><Studio></label>
+  <input
+    type="radio"
+    name="album[type_of_album]"
+    value="Live"
+    id="album_type_of_album_live"
+    <%= @album.type_of_album == "Live" ? "checked" : "" %>>
+  <label for="album_type_of_album_live"><Live></label>
+  <br>
+
+  <input type="submit" value="Enter Album Information">
+
+</form>
