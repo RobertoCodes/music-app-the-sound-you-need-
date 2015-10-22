@@ -1,5 +1,7 @@
 class BandsController < ApplicationController
 
+  before_action :user_must_be_signed_in
+  
   def new
     @band = Band.new
     render :new
@@ -12,11 +14,33 @@ class BandsController < ApplicationController
     else
       render :new
     end
+  end
 
+  def index
+    @bands = Band.all
+    render :index
   end
 
   def destroy
+    @band = Band.find(params[:id])
+    @band.destroy
+    render json: "Band destroyed"
+  end
 
+  def show
+    @band = Band.find(params[:id])
+    render :show
+  end
+
+  def update
+    @band = Band.find(params[:id])
+    @band.update(band_params)
+    render :show
+  end
+
+  def edit
+    @band = Band.find(params[:id])
+    render :edit
   end
 
 

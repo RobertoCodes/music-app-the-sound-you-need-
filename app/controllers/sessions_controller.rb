@@ -11,8 +11,7 @@ class SessionsController < ApplicationController
       render json: "Wrong credentials!"
     end
     sign_in!(@user)
-    redirect_to user_url(@user)
-
+    redirect_to bands_url
   end
 
   def destroy

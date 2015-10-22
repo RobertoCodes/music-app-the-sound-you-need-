@@ -1,0 +1,57 @@
+<h1>Please Enter Track Information!</h1>
+
+<form action="/tracks" method="POST">
+  <input
+    type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>"
+
+  <label for="track_title">Track Title</label>
+  <input
+    type="text"
+    name="track[title]"
+    id="track_title"
+    value="<%= @track.title %>"
+  <br>
+
+  <label for="track_album_id">Album Title</label>
+  <select name="track[album_id]" id="album_id">
+    <option></option>
+    <% @albums.each do |album| %>
+      <option
+        <%= album.id == @track.album_id ? "selected" : "" %>
+        value="<%= album.id %>">
+        <%= album.title %>
+      </option>
+    <% end %>
+  </select>
+  <br>
+
+  <input
+    type="radio"
+    name="album[track_type]"
+    value="Official"
+    id="album_track_type"
+    <%= @track.track_type == "Official" ? "checked" : "" %>>
+  <label for="track_track_type">Official</label>
+  <input
+    type="radio"
+    name="album[track_type]"
+    value="Official"
+    id="album_track_type"
+    <%= @track.track_type == "Bonus" ? "checked" : "" %>>
+  <label for="track_track_type">Bonus</label>
+  <br>
+
+  <label for="track_lyrics">Lyrics</label>
+  <input
+    type="text area"
+    name="track[lyrics]"
+    id="track_lyrics"
+    value="<%= @track.lyrics %>">
+  <br>
+
+
+  <input type="submit" value="Enter Track Information">
+
+</form>

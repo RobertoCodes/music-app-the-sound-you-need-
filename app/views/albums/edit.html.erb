@@ -1,6 +1,7 @@
-<h1>Please Enter Album Information!</h1>
+<h1>Please Update Album Information!</h1>
 
-<form action="/albums" method="POST">
+<form action="<%=album_url(@album)%>" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
   <input
     type="hidden"
     name="authenticity_token"
@@ -50,7 +51,7 @@
   <br>
   <p>
   </p>
-  
+
   <input type="submit" value="Enter Album Information">
 
 </form>
