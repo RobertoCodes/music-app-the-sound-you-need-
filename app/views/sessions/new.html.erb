@@ -1,0 +1,22 @@
+<h1>Please Sign In!</h1>
+
+<form action="/session" method="POST">
+  <input
+    type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>"
+
+  <label for="user_email">e-mail</label>
+  <input
+    type="text"
+    name="user[email]"
+    id="user_email"
+  <br>
+
+  <label for="user_password">Password</label>
+  <input type="password" name="user[password]" id="user_password">
+  <br>
+
+  <input type="submit" value="Log in and get that sound you need!">
+
+</form>
